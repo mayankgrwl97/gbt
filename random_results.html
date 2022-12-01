@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Geometry-biased Transformers</title>
+    <meta property="og:title" content="Geometry-biased Transformers for Novel View Synthesis">
+    <meta property="og:description" content=" Geometry-biased Transformers ">
+  </head>
+
+  <body>
+    <br>
+    <center>
+      <span style="font-size:42px"> Geometry-biased Transformers for Novel View Synthesis </span>
+    </center>
+    <br>
+
+    <!-- AUTHOR INFORMATION -->
+    <table align="center" width="800px">
+      <tbody>
+        <tr>
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://serverprocessor.wordpress.com/">Naveen Venkat</a><sup>*1</sup></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://mayankgrwl97.github.io/">Mayank Agarwal</a><sup>*1</sup></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="http://www.researchgate.net/profile/Maneesh_Singh5">Maneesh Singh</a></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://shubhtuls.github.io/">Shubham Tulsiani</a><sup>1</sup></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- AFFILIATION -->
+    <table align="center" width="600px">
+      <tbody>
+        <tr>
+          <td align="center" width="200px">
+            <span style="font-size:20px"><sup>1</sup>Carnegie Mellon University</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <center>
+      <span style="font-size:16px">(* indicates equal contribution)</span>
+    </center>
+    <br><br>
+
+    <!-- TRAINING CATEGORIES -->
+    <a id="seen"></a>
+    <center>
+      <span style="font-size:32px"> Qualitative results on heldout objects from training categories </span>
+    </center>
+
+    <br><br>
+
+    <table align="center" width="1200px">
+      <tbody>
+        <tr>
+          <td align="center">
+            <div style="display:inline-block;" class="hor-shift-vid">
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/apple_189_20393_38136.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/apple_308_32487_61549.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/apple_360_37802_71331.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/vase_398_50810_99696.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/vase_270_28801_57391.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/vase_377_43509_86632.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/donut_399_50887_99824.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/donut_409_55527_107257.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/donut_434_61701_121559.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/ball_242_25694_51060.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/ball_379_44538_88768.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/ball_558_80377_157430.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/suitcase_350_36831_69037.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/suitcase_377_43824_87194.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/suitcase_414_56868_109918.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/hydrant_429_60372_116968.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/hydrant_411_55970_107894.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/hydrant_194_20925_42241.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/cake_373_41651_83141.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/cake_394_48490_95954.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/cake_201_21573_40063.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/teddybear_350_36789_68942.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/teddybear_351_37063_67601.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/teddybear_363_38514_73877.mp4" type="video/mp4"> </video>
+              <br><br>
+              
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/plant_377_43806_87173.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/plant_253_27210_54493.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/plant_508_73238_142610.mp4" type="video/mp4"> </video>
+              <br><br>
+              
+              <img width="100%" src="assets/results/random/seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/bench_194_20962_44640.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/bench_437_62407_122549.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/seen/bench_244_25998_52056.mp4" type="video/mp4"> </video>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div style="display:inline-block;" class="hor-shift-vid">
+              <b>Qualitative results on heldout objects from training categories.</b> <br> For each object, we consider V=3 input views and compare the reconstruction quality of each method on novel query views.
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <!-- HELDOUT CATEGORIES -->
+    <a id="unseen"></a>
+    <center>
+      <span style="font-size:32px"> Qualitative results on objects from heldout categories </span>
+    </center>
+
+    <br><br>
+
+    <table align="center" width="1000px">
+      <tbody>
+        <tr>
+          <td align="center">
+              <img width="100%" src="assets/results/random/unseen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/backpack_339_35057_62941.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/backpack_387_46424_92589.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/backpack_404_53444_104201.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/unseen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/mouse_372_41286_82250.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/mouse_374_42337_84611.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/mouse_604_94312_189645.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/unseen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/remote_93_10160_19207.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/remote_353_37315_70190.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/remote_195_21038_44290.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/unseen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/book_197_21225_42555.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/book_209_22168_45185.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/book_209_22175_45193.mp4" type="video/mp4"> </video>
+              <br><br>
+
+              <img width="100%" src="assets/results/random/unseen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/chair_246_26324_51990.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/chair_339_35167_63679.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/random/unseen/chair_374_42035_84101.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <b>Qualitative results on objects from heldout categories.</b> <br> For each object, we consider V=3 input views and compare the reconstruction quality of each method on novel query views. <br> Note that the model has never seen these categories of objects during training.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><hr><br>
+
+  </body>
+</html>

@@ -1,0 +1,308 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Geometry-biased Transformers</title>
+    <meta property="og:title" content="Geometry-biased Transformers for Novel View Synthesis">
+    <meta property="og:description" content=" Geometry-biased Transformers ">
+  </head>
+
+  <body>
+    <br>
+    <center>
+      <span style="font-size:42px"> Geometry-biased Transformers for Novel View Synthesis </span>
+    </center>
+    <br>
+
+    <!-- AUTHOR INFORMATION -->
+    <table align="center" width="800px">
+      <tbody>
+        <tr>
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://serverprocessor.wordpress.com/">Naveen Venkat</a><sup>*1</sup></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://mayankgrwl97.github.io/">Mayank Agarwal</a><sup>*1</sup></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="http://www.researchgate.net/profile/Maneesh_Singh5">Maneesh Singh</a></span>
+          </td>
+
+          <td align="center" width="100px">
+              <span style="font-size:20px"><a href="https://shubhtuls.github.io/">Shubham Tulsiani</a><sup>1</sup></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- AFFILIATION -->
+    <table align="center" width="600px">
+      <tbody>
+        <tr>
+          <td align="center" width="200px">
+            <span style="font-size:20px"><sup>1</sup>Carnegie Mellon University</span>
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+
+    <center>
+      <span style="font-size:16px">(* indicates equal contribution)</span>
+    </center>
+    <br>
+
+    <!-- LINKS -->
+    <table align="center" width="400px">
+      <tbody>
+        <tr>
+          <td align="center" width="200px">
+            <span style="font-size:24px"><a href="https://arxiv.org/"> [Paper] </a></span>
+          </td>
+
+          <td align="center" width="200px">
+            <span style="font-size:24px"><a href="#video"> [Video] </a></span>
+          </td>
+
+          <td align="center" width="200px">
+            <span style="font-size:24px"><a href="https://github.com/mayankgrwl97/gbt"> [Code] </a></span>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <!-- TEASER -->
+    <table align="center" width="1000px">
+      <tbody>
+        <tr>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/teaser/header.png"> </img>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/teaser/header.png"> </img>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/ball.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/apple.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/cake.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/donut.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/hydrant.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/plant.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/suitcase.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/teaser/teddybear.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" align="justify">
+            Given a small set of context images with known camera viewpoints, our Geometry-biased transformer (GBT) synthesizes novel views from arbitrary query viewpoints. The use of global context ensures meaningful prediction despite large viewpoint variation, while the geometric bias allows more accurate inference compared to a baseline without such bias (GBT-nb).
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <!-- ABSTRACT -->
+    <p align="center"><span style="font-size:30px"> Abstract </span></p>
+    <p align="justify">
+      <span style="font-size:20px">
+        We tackle the task of synthesizing novel views of an object given a few input images and associated camera viewpoints. Our work is inspired by recent 'geometry-free' approaches where multi-view images are encoded as a (global) set-latent representation, which is then used to predict the color for arbitrary query rays. While this representation yields (coarsely) accurate images corresponding to novel viewpoints, the lack of geometric reasoning limits the quality of these outputs. To overcome this limitation, we propose 'Geometry-biased Transformers' (GBTs) that incorporate geometric inductive biases in the set-latent representation-based inference to encourage multi-view geometric consistency. We induce the geometric bias by augmenting the dot-product attention mechanism to also incorporate 3D distances between rays associated with tokens as a learnable bias. We find that this, along with camera-aware embeddings as input, allows our models to generate significantly more accurate outputs. We validate our approach on the real-world CO3D dataset, where we train our system over 10 categories and evaluate its view-synthesis ability for novel objects as well as unseen categories. We empirically validate the benefits of the proposed geometric biases and show that our approach significantly improves over prior works. 
+      </span>
+    </p>
+
+    <br><hr><br>
+
+    <!-- VIDEO -->
+    <a id="video"></a>
+    <p align="center"><span style="font-size:30px"> Video </span></p>
+    <div class="video-container" align="center">
+      <iframe width="80%" height="80%" src="https://www.youtube.com/embed/RkQ8qtoz5_s" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <br>
+
+    <br><hr><br>
+
+    <!-- RESULTS -->
+    <p align="center"><span style="font-size:30px"> Results </span></p>
+    <p align="center"><span style="font-size:22px"> <b>Qualitative results on heldout objects from training categories</b> </span></p>
+    <br>
+
+    <table align="center" width="1200px">
+      <tbody>
+        <tr>
+          <td align="center">
+            <div style="display:inline-block;" class="hor-shift-vid">
+              <img width="100%" src="assets/results/comparison_seen/header.png"> </img>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/teddybear_7.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/ball_7.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/cake_4.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/apple_2.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/vase_7.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/donut_1.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/plant_6.mp4" type="video/mp4"> </video>
+              <video autoplay loop muted playsinline width="100%"> <source src="assets/results/comparison_seen/suitcase_4.mp4" type="video/mp4"> </video>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="display:inline-block;" class="hor-shift-vid">
+              For each object, we consider V=3 input views and compare the reconstruction quality of each method on novel query views. See more <b>random results</b> <a href="random_results.html#seen">here</a>.
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <!-- HELDOUT RESULTS -->
+    <p align="center"><span style="font-size:22px"> <b>Qualitative results on heldout categories</b> </span></p>
+    <br>
+    <table align="center" width="1000px">
+      <tbody>
+        <tr>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/results/heldout/header.png"> </img>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/results/heldout/header.png"> </img>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/heldout/chair_2.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/heldout/book_2.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/heldout/mouse_8.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/heldout/remote_3.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" align="justify">
+            Given V = 3 input views, we visualize the rendered views obtained from GBT. Note that the model has never seen these categories of objects during training. See more <b>random results</b> <a href="random_results.html#unseen">here</a>.
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <!-- NOISY RESULTS -->
+    <p align="center"><span style="font-size:22px"> <b>Effect of camera noise</b> </span></p>
+    <br>
+    <table align="center" width="1000px">
+      <tbody>
+        <tr>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/results/noisy/header.png"> </img>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <img width="100%" src="assets/results/noisy/header.png"> </img>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/noisy/0.mp4" type="video/mp4"> </video>
+          </td>
+          <td align="center" width="1%"> </td>
+          <td align="center" width="100px">
+            <video autoplay loop muted playsinline width="100%"> <source src="assets/results/noisy/3.mp4" type="video/mp4"> </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" align="justify">
+            Given the 3 input views with noisy camera poses (increasing left to right), we visualize the predictions for a common query view across three methods (top row: <b> pixelNeRF </b>, middle row: <b>GBT-nb</b>, bottom row: <b>GBT</b>).
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <!-- BibTeX -->
+    <!-- <p align="center"><span style="font-size:30px"> BibTeX </span></p>
+    <p align="justify">
+      <span style="font-size:20px">
+        <pre>
+          <code>
+            @misc{placeholder,
+              title={placeholder}, 
+              author={placeholder},
+              year={2023},
+              eprint={placeholder},
+              archivePrefix={arXiv},
+              primaryClass={cs.CV}
+            }
+          </code>
+        </pre>
+      </span>
+    </p>
+
+    <hr><br> -->
+
+    <!-- ACKNOWLEDGEMENTS -->
+    <p align="center"><span style="font-size:30px"> Acknowledgements </span></p>
+    <p align="justify">
+      <span style="font-size:20px">
+        We thank Zhizhuo Zhou, Jason Zhang, Yufei Ye, Ambareesh Revanur, Yehonathan Litman, and Anish Madan for helpful discussions and feedback. We also thank David Novotny and Jonáš Kulhánek for sharing outputs of their work and helpful correspondence. This project was supported in part by a Verisk AI Faculty Research Award. This webpage template was borrowed from <a href="https://richzhang.github.io/colorization/">here</a>.
+      </span>
+    </p>
+
+  </body>
+</html>
