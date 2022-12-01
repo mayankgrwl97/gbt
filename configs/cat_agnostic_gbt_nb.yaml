@@ -1,0 +1,89 @@
+train_dataset:
+  type: 'co3dv2'
+
+  stage: 'train'
+  path: '/grogu/user/zhizhuoz/datasets/co3d/' # /path/to/co3d
+  category: 'all_nerformer'
+  image_size: [256, 256]
+  num_input_views: 3
+  num_query_views: 1
+  mask_images: True
+  query_input_views: False
+
+val_dataset:
+  type: 'co3dv2'
+
+  stage: "val"
+  path: '/grogu/user/zhizhuoz/datasets/co3d/'
+  category: 'all_nerformer'
+  image_size: [256, 256]
+  num_input_views: 3
+  num_query_views: 32
+  mask_images: True
+  query_input_views: False
+
+model:
+  type: 'SRTBaseline'
+
+  num_pixel_queries: 32768
+  transformer_dim: 768
+
+  ray:
+    num_freqs: 15
+    start_freq: -6
+    parameterize: 'plucker'
+    view_space: True
+
+  feature_extractor:
+    n_blocks: 3
+    num_patches_x: 16 # Changing depth of network (n_blocks will affect this)
+    num_patches_y: 16 # Changing depth of network (n_blocks will affect this)
+    image_feature_dim: 256  # 256+128+64 # Changing depth of network (n_blocks will affect this)
+    use_feature_pyramid: False
+
+  ray_decoder:
+    num_decoder_layers: 4
+    transformer_dim: 768 # Initialize same as model.transformer_dim
+    use_geometry: False
+    learnable_geometry: True
+    geometric_weight_init_value: [1, 1, 1, 1]
+    geometric_distance_eps: 1e-8
+
+  scene_encoder:
+    num_encoder_layers: 8
+    transformer_dim: 768 # Initialize same as model.transformer_dim
+    use_geometry: False
+    learnable_geometry: True
+    geometric_weight_init_value: [1, 1, 1, 1, 1, 1, 1, 1]
+    geometric_distance_eps: 1e-8
+
+training:
+  load_path: null # The path to load training state {model, optimizer, batch_id}
+
+  device: 'cuda'
+  device_ids: [0, 1]
+  use_mixed_precision: True
+  runs_dir: 'runs/'
+  exp_tag: 'co3dv2/cat_agnostic/gbt_nb'
+  num_epochs: 20000
+  batch_size: 6
+  num_workers: 4
+
+  optim:
+    lr: 1e-5
+
+  validation:
+    validate_after_epochs: 200  # Validate after how many epochs
+
+  logging:
+    visualize_after: 2000 # Visualize after how many iterations
+
+  saving:
+    save_after: 500 # Save after how many iterations
+
+infer:
+  load_path: 'runs/co3dv2/cat_agnostic/gbt_nb/latest.pt'
+  device: 'cuda:0'
+  visualize_after: 1
+  num_workers: 0
+  how_many: 10 # number of scenes for inference
