@@ -1,7 +1,7 @@
 # Geometry-biased Transformers for Novel View Synthesis
 Geometry-biased Transformers for Novel View Synthesis
 
-[Paper (Coming Soon)](https://github.com/mayankgrwl97/gbt)&nbsp;&nbsp;&nbsp;
+[Paper](https://arxiv.org/pdf/2301.04650.pdf)&nbsp;&nbsp;&nbsp;
 [Web](https://mayankgrwl97.github.io/gbt/)&nbsp;&nbsp;&nbsp;
 [Demo](https://colab.research.google.com/github/mayankgrwl97/gbt/blob/main/notebooks/gbt-demo.ipynb)
 
