@@ -23,9 +23,7 @@ val_dataset:
   query_input_views: False
 
 model:
-  type: 'SRTBaseline'
-
-  num_pixel_queries: 32768
+  num_pixel_queries: 7168
   transformer_dim: 768
 
   ray:
