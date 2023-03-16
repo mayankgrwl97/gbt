@@ -14,7 +14,20 @@ For detailed instructions refer to [SETUP.md](./SETUP.md)
 Follow instructions from the official CO3D [repository](https://github.com/facebookresearch/co3d#download-the-dataset) to download the dataset in [this](https://github.com/facebookresearch/co3d#dataset-format) format.
 
 ## Training
-(Coming Soon)
+
+### Commands
+
+Train `GBT` model on 10 categories (category agnostic)
+```bash
+python scripts/train.py --config-path configs/cat_agnostic_gbt.yaml
+```
+
+Train `GBT-nb` (no geometric bias) model on 10 categories (category agnostic)
+```bash
+python scripts/train.py --config-path configs/cat_agnostic_gbt_nb.yaml
+```
+
+Note: Modify yaml config files with appropriate `num_pixel_queries` that can fit on the GPU.
 
 ## Inference
 ### Checkpoints
